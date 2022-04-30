@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import life.jacky.demo.LinkedList.LinkedList;
+import life.jacky.demo.Notes.Note;
 
 import java.io.IOException;
 

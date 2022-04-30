@@ -6,11 +6,19 @@ public class Note {
     private String content;
     private Date createdDate;
 
-    Note() {
+    public Note() {
         createdDate = new Date();
     }
 
     public Note(String content) {
+        this.setContent(content);
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
         this.content = content;
     }
 }

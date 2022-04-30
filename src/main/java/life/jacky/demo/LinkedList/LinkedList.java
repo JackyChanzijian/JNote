@@ -2,9 +2,9 @@ package life.jacky.demo.LinkedList;
 
 public class LinkedList<E> {
     Node<E> head, tail;
-    int length = 0;
+    public int length = 0;
 
-    void addFirst(E element) {
+    public void addFirst(E element) {
         Node<E> newNode = new Node<E>(element);
         if (head == null) {
             head = tail = newNode;

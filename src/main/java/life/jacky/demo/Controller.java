@@ -23,9 +23,9 @@ public class Controller {
         loadScene("AddNote.fxml");
     }
 
-    void loadScene(String path) throws IOException{
-        Parent fmxl = FXMLLoader.load(getClass().getResource(path));
+    void loadScene(String path) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource(path));
         secondView.getChildren().removeAll();
-        secondView.getChildren().setAll(fmxl);
+        secondView.getChildren().setAll(fxml);
     }
 }

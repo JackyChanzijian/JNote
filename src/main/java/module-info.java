@@ -5,4 +5,8 @@ module life.jacky.demo {
 
     opens life.jacky.demo to javafx.fxml;
     exports life.jacky.demo;
+    exports life.jacky.demo.LinkedList;
+    opens life.jacky.demo.LinkedList to javafx.fxml;
+    exports life.jacky.demo.Notes;
+    opens life.jacky.demo.Notes to javafx.fxml;
 }

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -24,27 +25,23 @@
          </VBox>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                 <children>
-                    <VBox alignment="CENTER" prefHeight="398.0" prefWidth="417.0">
+               <StackPane fx:id="secondView" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                         <children>
-                     <Label fx:id="title" text="Label" />
-                            <ChoiceBox id="languageChoice" prefWidth="150.0" />
-                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="176.0">
-                                <children>
-                                    <Label text="Name" />
-                                    <TextField />
-                                </children>
-                                <opaqueInsets>
-                                </opaqueInsets>
-                            </HBox>
-                            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="417.0">
-                                <children>
-                                    <Label text="Name" />
-                                    <TextField />
-                                </children>
-                            </HBox>
-                     <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
+                           <Label fx:id="title" text="Label" />
+                                  <ChoiceBox id="languageChoice" prefWidth="150.0" />
+                                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="417.0">
+                                      <children>
+                                          <Label text="Name" />
+                                          <TextField />
+                                      </children>
+                                  </HBox>
+                           <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
                         </children>
-                    </VBox>
+                     </VBox>
+                  </children>
+               </StackPane>
                 </children></AnchorPane>
         </items>
     </SplitPane>

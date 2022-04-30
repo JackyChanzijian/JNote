@@ -48,10 +48,11 @@ public class Controller implements Initializable {
         setupTreeView();
     }
     void setupTreeView() {
-        TreeItem<String> rootItem = new TreeItem<>("Note");
+        TreeItem<String> rootItem = new TreeItem<>("Root");
         treeView.setRoot(rootItem);
         for (int i = 0; i < Global.notes.length; i++) {
-            TreeItem<String> newTreeItem = new TreeItem<String>(Global.notes.get(i).getContent());
+            String content = Global.notes.get(i).getContent();
+            TreeItem<String> newTreeItem = new TreeItem<String>(content.substring(0, Math.min(20, content.length())));   // Remove the letters that are too long
             rootItem.getChildren().add(newTreeItem);
         }
     }

@@ -26,7 +26,7 @@ public class AddNoteController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Global.notes.addFirst(newNote);
+        Global.notes.addLast(newNote);
         System.out.println(Global.notes.length);
     }
 }

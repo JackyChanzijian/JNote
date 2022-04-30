@@ -16,7 +16,7 @@ public class LinkedList<E> {
         length++;
     }
 
-    void addLast(E element) {
+    public void addLast(E element) {
         Node<E> newNode = new Node<>(element);
         if (head == null) {
             head = tail = newNode;   // Set both head and tail to the new Node if the list is empty
@@ -30,7 +30,9 @@ public class LinkedList<E> {
     }
 
     public E get(int index) {
-        if (index < length - 1) { return null; }
+        System.out.println("Index: " + index);
+        System.out.println("Length: " + length);
+        if (index > length - 1) { return null; }
 
         Node<E> current = head;
         for (int i = 0; i < index; i++) {

@@ -28,4 +28,14 @@ public class LinkedList<E> {
         }
         length++;
     }
+
+    public E get(int index) {
+        if (index < length - 1) { return null; }
+
+        Node<E> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.element;
+    }
 }

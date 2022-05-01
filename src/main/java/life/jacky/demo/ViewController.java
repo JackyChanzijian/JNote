@@ -33,6 +33,23 @@ public class ViewController implements Initializable {
     @FXML
     TreeView treeView;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            loadInfo();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        refreshTreeView();
+    }
+
+    @FXML
+    public void loadInfo() throws IOException {
+        String path = "ProjectInfo.fxml";
+        FXMLLoader loader= new FXMLLoader(getClass().getResource(path));
+        loadScene(loader.load());
+    }
+
     @FXML
     public void addNote(ActionEvent e) throws IOException {
         String path = "AddNote.fxml";
@@ -69,13 +86,8 @@ public class ViewController implements Initializable {
     }
 
     void loadScene(Parent fxml) throws IOException {
-
         secondView.getChildren().removeAll();
         secondView.getChildren().setAll(fxml);
-    }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        refreshTreeView();
     }
     void refreshTreeView() {
         TreeItem<String> rootItem = new TreeItem<>("Root");

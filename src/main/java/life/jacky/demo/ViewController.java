@@ -39,6 +39,11 @@ public class ViewController implements Initializable {
     }
 
     @FXML
+    public void setBlog(ActionEvent e) throws  IOException {
+        loadScene("AddBlog.fxml");
+    }
+
+    @FXML
     void onKeyReleased(KeyEvent event) {
         setupTreeView();    // Update the tree view when typing
     }

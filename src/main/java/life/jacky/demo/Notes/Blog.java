@@ -1,14 +1,14 @@
 package life.jacky.demo.Notes;
 
-public class Essay extends Note {
+public class Blog extends Note {
     private String author;
     private String title;
 
-    Essay() {
+    Blog() {
         super();
     }
 
-    Essay(String content, String author, String title) {
+    Blog(String content, String author, String title) {
         super(content);
         this.author = author;
         this.title = title;

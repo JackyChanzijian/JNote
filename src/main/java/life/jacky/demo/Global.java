@@ -9,7 +9,7 @@ import life.jacky.demo.Notes.Todo;
 public class Global {
 
     public static LinkedList<Note> notes = new LinkedList<>("Notes");
-    public static LinkedList<Blog> essays = new LinkedList<>("Essays");
+    public static LinkedList<Blog> blogs = new LinkedList<>("Blogs");
     public static LinkedList<CodeSnippet> snippets = new LinkedList<>("Code Snippet");
-    public static LinkedList<Todo> todos = new LinkedList<>("Blogs");
+    public static LinkedList<Todo> todos = new LinkedList<>("Todos");
 }

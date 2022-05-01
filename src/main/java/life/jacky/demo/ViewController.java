@@ -11,8 +11,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
-import life.jacky.demo.Global;
 import life.jacky.demo.LinkedList.LinkedList;
+import life.jacky.demo.Notes.Blog;
 import life.jacky.demo.Notes.Note;
 
 import java.io.IOException;
@@ -34,36 +34,56 @@ public class ViewController implements Initializable {
     TreeView treeView;
 
     @FXML
-    public void onSubmit(ActionEvent e) throws IOException {
-        loadScene("AddNote.fxml");
+    public void addNote(ActionEvent e) throws IOException {
+        String path = "AddNote.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        Parent parent = loader.load();
+        // Get Controller
+        NoteController controller =  loader.getController();
+        // Create new Note
+        Note newNote = new Note();
+        Global.notes.addLast(newNote);
+        controller.setNote(newNote);
+        // Load scene
+        loadScene(parent);
     }
 
     @FXML
-    public void setBlog(ActionEvent e) throws  IOException {
-        loadScene("AddBlog.fxml");
+    public void addBlog(ActionEvent e) throws  IOException {
+        String path = "AddBlog.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        Parent parent = loader.load();
+        // Get Controller
+        BlogController controller =  loader.getController();
+        // Create new Note
+        Blog newBlog = new Blog();
+        Global.blogs.addLast(newBlog);
+        controller.setBlog(newBlog);
+        // Load scene
+        loadScene(parent);
     }
 
     @FXML
     void onKeyReleased(KeyEvent event) {
-        setupTreeView();    // Update the tree view when typing
+        refreshTreeView();    // Update the tree view when typing
     }
 
-    void loadScene(String path) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource(path));
+    void loadScene(Parent fxml) throws IOException {
+
         secondView.getChildren().removeAll();
         secondView.getChildren().setAll(fxml);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setupTreeView();
+        refreshTreeView();
     }
-    void setupTreeView() {
+    void refreshTreeView() {
         TreeItem<String> rootItem = new TreeItem<>("Root");
         treeView.setRoot(rootItem);
 
         List<LinkedList<? extends Note>> lists = new ArrayList<>();
         lists.add(Global.notes);
-        lists.add(Global.essays);
+        lists.add(Global.blogs);
         lists.add(Global.snippets);
         lists.add(Global.todos);
 

@@ -4,7 +4,7 @@ public class Blog extends Note {
     private String author;
     private String title;
 
-    Blog() {
+    public Blog() {
         super();
     }
 

@@ -60,6 +60,7 @@ public class ViewController implements Initializable {
         lists.add(Global.notes);
         lists.add(Global.essays);
         lists.add(Global.snippets);
+        lists.add(Global.todos);
 
         for (LinkedList<? extends Note> list : lists) {
             // Title

@@ -5,20 +5,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
-import life.jacky.demo.LinkedList.LinkedList;
 import life.jacky.demo.Notes.Blog;
 import life.jacky.demo.Notes.Note;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ViewController implements Initializable {
@@ -31,7 +25,7 @@ public class ViewController implements Initializable {
     StackPane secondView;
 
     @FXML
-    TreeView treeView;
+    ListView noteList, blogList, todoList, codeList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,7 +34,7 @@ public class ViewController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        refreshTreeView();
+//        refreshTreeView();
     }
 
     @FXML
@@ -82,35 +76,18 @@ public class ViewController implements Initializable {
 
     @FXML
     void onKeyReleased(KeyEvent event) {
-        refreshTreeView();    // Update the tree view when typing
+        refreshListView();    // Update the tree view when typing
     }
 
     void loadScene(Parent fxml) throws IOException {
         secondView.getChildren().removeAll();
         secondView.getChildren().setAll(fxml);
     }
-    void refreshTreeView() {
-        TreeItem<String> rootItem = new TreeItem<>("Root");
-        treeView.setRoot(rootItem);
-
-        List<LinkedList<? extends Note>> lists = new ArrayList<>();
-        lists.add(Global.notes);
-        lists.add(Global.blogs);
-        lists.add(Global.snippets);
-        lists.add(Global.todos);
-
-        for (LinkedList<? extends Note> list : lists) {
-            // Title
-            TreeItem<String> listRoot = new TreeItem<>(list.toString());
-            rootItem.getChildren().add(listRoot);
-            for (int i = 0; i < list.length; i++) {
-
-                // Contents
-                String content = list.get(i).toString();
-                TreeItem<String> newTreeItem = new TreeItem<String>(content.substring(0, Math.min(20, content.length())));   // Remove the letters that are too long
-                listRoot.getChildren().add(newTreeItem);
-            }
-        }
+    void refreshListView() {
+        noteList.getItems().setAll(Global.notes.toArray());
+        blogList.getItems().setAll(Global.blogs.toArray());
+        todoList.getItems().setAll(Global.todos.toArray());
+        codeList.getItems().setAll(Global.codes.toArray());
     }
 
 }

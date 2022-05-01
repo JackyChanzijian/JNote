@@ -26,4 +26,7 @@ public class Note {
     public String toString() {
         return content;
     }
+
+//    protected abstract void loadFromFile();
+//    protected abstract void saveToFile();
 }

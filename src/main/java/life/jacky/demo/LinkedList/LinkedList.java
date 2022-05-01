@@ -48,6 +48,13 @@ public class LinkedList<E> {
         return current.element;
     }
 
+    public E[] toArray() {
+        E[] elements = (E[]) new Object[length];
+        for (int i = 0; i < length; i++) {
+            elements[i] = get(i);
+        }
+        return elements;
+    }
     @Override
     public String toString() {
         return name;

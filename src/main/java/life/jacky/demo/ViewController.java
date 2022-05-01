@@ -11,12 +11,17 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
+import life.jacky.demo.Global;
+import life.jacky.demo.LinkedList.LinkedList;
+import life.jacky.demo.Notes.Note;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class ViewController implements Initializable {
     @FXML
     Button submitButton;
     @FXML
@@ -50,10 +55,23 @@ public class Controller implements Initializable {
     void setupTreeView() {
         TreeItem<String> rootItem = new TreeItem<>("Root");
         treeView.setRoot(rootItem);
-        for (int i = 0; i < Global.notes.length; i++) {
-            String content = Global.notes.get(i).getContent();
-            TreeItem<String> newTreeItem = new TreeItem<String>(content.substring(0, Math.min(20, content.length())));   // Remove the letters that are too long
-            rootItem.getChildren().add(newTreeItem);
+
+        List<LinkedList<? extends Note>> lists = new ArrayList<>();
+        lists.add(Global.notes);
+        lists.add(Global.essays);
+        lists.add(Global.snippets);
+
+        for (LinkedList<? extends Note> list : lists) {
+            // Title
+            TreeItem<String> listRoot = new TreeItem<>(list.toString());
+            rootItem.getChildren().add(listRoot);
+            for (int i = 0; i < list.length; i++) {
+
+                // Contents
+                String content = list.get(i).toString();
+                TreeItem<String> newTreeItem = new TreeItem<String>(content.substring(0, Math.min(20, content.length())));   // Remove the letters that are too long
+                listRoot.getChildren().add(newTreeItem);
+            }
         }
     }
 

@@ -30,4 +30,8 @@ public class Essay extends Note {
         this.title = title;
     }
 
+    @Override
+    public String toString() {
+        return title;
+    }
 }

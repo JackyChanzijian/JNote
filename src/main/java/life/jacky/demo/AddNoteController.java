@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
+import life.jacky.demo.Global;
 import life.jacky.demo.Notes.Note;
 
 import java.net.URL;

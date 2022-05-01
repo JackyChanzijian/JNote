@@ -1,8 +1,17 @@
 package life.jacky.demo.LinkedList;
 
 public class LinkedList<E> {
+    String name;
     Node<E> head, tail;
     public int length = 0;
+
+    public LinkedList(String name) {
+        this.name = name;
+    }
+
+    public LinkedList() {
+
+    }
 
     public void addFirst(E element) {
         Node<E> newNode = new Node<E>(element);
@@ -30,8 +39,6 @@ public class LinkedList<E> {
     }
 
     public E get(int index) {
-        System.out.println("Index: " + index);
-        System.out.println("Length: " + length);
         if (index > length - 1) { return null; }
 
         Node<E> current = head;
@@ -39,5 +46,10 @@ public class LinkedList<E> {
             current = current.next;
         }
         return current.element;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

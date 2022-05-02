@@ -5,8 +5,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import life.jacky.demo.Notes.Blog;
+import life.jacky.demo.Notes.Note;
 
-public class BlogController {
+public class BlogController extends NoteControllerBase {
     Blog blog;
 
     @FXML
@@ -30,12 +31,11 @@ public class BlogController {
         blog.setAuthor(author);
         blog.setContent(content);
     }
-
-    void setBlog(Blog blog) {
-        this.blog = blog;
+    @Override
+    public void setNote(Note note) {
+        this.blog = (Blog) note;
         titleText.setText(blog.getTitle());
         authorText.setText(blog.getAuthor());
         contentText.setText(blog.getContent());
     }
-
 }

@@ -21,13 +21,7 @@ import java.util.ResourceBundle;
 
 public class ViewController implements Initializable {
     @FXML
-    Button submitButton;
-    @FXML
-    Label title;
-
-    @FXML
     StackPane secondView;
-
     @FXML
     ListView noteList, blogList, todoList, codeList;
 
@@ -41,7 +35,6 @@ public class ViewController implements Initializable {
             throw new RuntimeException(e);
         }
         setupListView();
-//        refreshTreeView();
     }
 
     @FXML
@@ -52,37 +45,20 @@ public class ViewController implements Initializable {
     }
 
     public void showNote(Note target) throws IOException {
-        String path = "AddNote.fxml";
+        // Get the target note path
+        Class noteClass = target.getClass();
+        String path = "Note.fxml";
+        if (noteClass.equals(Note.class)) path = "Note.fxml";
+        else if (noteClass.equals(Blog.class)) path = "Blog.fxml";
+        else if (noteClass.equals(Todo.class)) path = "Todo.fxml";
+        else if (noteClass.equals(CodeSnippet.class)) System.out.println("This is a Code Snippet");
+        // Get Scene Loader
         FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         Parent parent = loader.load();
         // Get Controller
-        NoteController controller =  loader.getController();
+        NoteControllerBase controller =  loader.getController();
         // Create new Note
         controller.setNote(target);
-        // Load scene
-        loadScene(parent);
-    }
-
-    public void showBlog(Blog target) throws IOException {
-        String path = "AddBlog.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-        Parent parent = loader.load();
-        // Get Controller
-        BlogController controller =  loader.getController();
-        // Create new Note
-        controller.setBlog(target);
-        // Load scene
-        loadScene(parent);
-    }
-
-    public void showTodo(Todo target) throws IOException {
-        String path = "Todo.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-        Parent parent = loader.load();
-        // Get Controller
-        TodoController controller =  loader.getController();
-        // Create new Note
-        controller.setTodo(target);
         // Load scene
         loadScene(parent);
     }
@@ -97,14 +73,13 @@ public class ViewController implements Initializable {
     public void addBlog(ActionEvent e) throws  IOException {
         Blog newBlog = new Blog();
         Global.blogs.addLast(newBlog);
-        showBlog(newBlog);
+        showNote(newBlog);
     }
-
     @FXML
     public void addTodo(ActionEvent e) throws  IOException {
         Todo newBlog = new Todo();
         Global.todos.addLast(newBlog);
-        showTodo(newBlog);
+        showNote(newBlog);
     }
 
     @FXML
@@ -132,39 +107,11 @@ public class ViewController implements Initializable {
                     selectedNote = (Note) list.getSelectionModel().getSelectedItem();
                     if (selectedNote == null) return;   // Return if select nothing
                     // Check which type of note the selectedNote belong to
-                    Class noteClass = selectedNote.getClass();
-                    if (noteClass.equals(Note.class)) {
-                        System.out.println("This is a Note");
-                        // Display Note View
-                        try {
-                            showNote(selectedNote);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                    try {
+                        showNote(selectedNote);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
-                    else if (noteClass.equals(Blog.class)) {
-                        System.out.println("This is a blog");
-                        try {
-                            showBlog((Blog) selectedNote);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    else if (noteClass.equals(Todo.class)) {
-                        System.out.println("This is a todo");
-                        try {
-                            showTodo((Todo) selectedNote);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    else if (noteClass.equals(CodeSnippet.class)) {
-                        System.out.println("This is a Code Snippet");
-                    }
-                    else {
-                        System.out.println("Unknown Type");
-                    }
-
                 }
             });
 

@@ -5,7 +5,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import life.jacky.demo.Notes.Note;
 
-public class NoteController {
+public class NoteController extends NoteControllerBase {
     Note note;
     @FXML
     private TextArea textArea;

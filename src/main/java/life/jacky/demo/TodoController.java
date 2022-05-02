@@ -6,16 +6,16 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import life.jacky.demo.Notes.Note;
 import life.jacky.demo.Notes.Todo;
 
-public class TodoController {
+public class TodoController extends NoteControllerBase {
     @FXML
     CheckBox checkBox;
     @FXML
     TextField todoField;
     @FXML
     TextArea detailField;
-
     Todo todo;
 
     @FXML
@@ -32,9 +32,9 @@ public class TodoController {
     void onDetailTyped(KeyEvent event) {
         todo.setDetail(detailField.getText());
     }
-
-    public void setTodo(Todo todo) {
-        this.todo = todo;
+    @Override
+    public void setNote(Note note) {
+        this.todo = (Todo) note;
         checkBox.setSelected(todo.isComplete());
         todoField.setText(todo.getContent());
         detailField.setText(todo.getDetail());

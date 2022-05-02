@@ -16,7 +16,7 @@
         <items>
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
-               <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#loadInfo" prefHeight="68.0" prefWidth="175.0" style="-fx-background-color: #cfd8dc;" text="Menu">
+               <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#loadInfo" prefHeight="68.0" prefWidth="175.0" style="-fx-background-color: #cfd8dc;" text="Menu">
                   <font>
                      <Font name="System Bold" size="29.0" />
                   </font>

@@ -74,6 +74,18 @@ public class ViewController implements Initializable {
         // Load scene
         loadScene(parent);
     }
+
+    public void showTodo(Todo target) throws IOException {
+        String path = "Todo.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        Parent parent = loader.load();
+        // Get Controller
+        TodoController controller =  loader.getController();
+        // Create new Note
+        controller.setTodo(target);
+        // Load scene
+        loadScene(parent);
+    }
     @FXML
     public void addNote(ActionEvent e) throws IOException {
         Note newNote = new Note();
@@ -86,6 +98,13 @@ public class ViewController implements Initializable {
         Blog newBlog = new Blog();
         Global.blogs.addLast(newBlog);
         showBlog(newBlog);
+    }
+
+    @FXML
+    public void addTodo(ActionEvent e) throws  IOException {
+        Todo newBlog = new Todo();
+        Global.todos.addLast(newBlog);
+        showTodo(newBlog);
     }
 
     @FXML
@@ -133,6 +152,11 @@ public class ViewController implements Initializable {
                     }
                     else if (noteClass.equals(Todo.class)) {
                         System.out.println("This is a todo");
+                        try {
+                            showTodo((Todo) selectedNote);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                     else if (noteClass.equals(CodeSnippet.class)) {
                         System.out.println("This is a Code Snippet");

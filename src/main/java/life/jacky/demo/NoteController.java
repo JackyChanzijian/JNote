@@ -12,9 +12,9 @@ public class NoteController {
 
     @FXML
     public void onKeyReleased(KeyEvent event) {
-        saveText();
+        saveNote();
     }
-    void saveText() {
+    void saveNote() {
         String content = textArea.getText();
         note.setContent(content);
     }

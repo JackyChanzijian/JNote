@@ -46,6 +46,7 @@
                </TitledPane>
                <Button fx:id="submitButton" mnemonicParsing="false" onAction="#addNote" text="Add Note" />
                <Button fx:id="addBlog" mnemonicParsing="false" onAction="#addBlog" text="Add Blog" />
+               <Button fx:id="addTodo" mnemonicParsing="false" onAction="#addTodo" text="Add Todo" />
             </children>
          </VBox>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

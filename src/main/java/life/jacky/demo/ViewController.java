@@ -62,6 +62,18 @@ public class ViewController implements Initializable {
         // Load scene
         loadScene(parent);
     }
+
+    public void showBlog(Blog target) throws IOException {
+        String path = "AddBlog.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        Parent parent = loader.load();
+        // Get Controller
+        BlogController controller =  loader.getController();
+        // Create new Note
+        controller.setBlog(target);
+        // Load scene
+        loadScene(parent);
+    }
     @FXML
     public void addNote(ActionEvent e) throws IOException {
         Note newNote = new Note();
@@ -71,17 +83,9 @@ public class ViewController implements Initializable {
 
     @FXML
     public void addBlog(ActionEvent e) throws  IOException {
-        String path = "AddBlog.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-        Parent parent = loader.load();
-        // Get Controller
-        BlogController controller =  loader.getController();
-        // Create new Note
         Blog newBlog = new Blog();
         Global.blogs.addLast(newBlog);
-        controller.setBlog(newBlog);
-        // Load scene
-        loadScene(parent);
+        showBlog(newBlog);
     }
 
     @FXML
@@ -121,6 +125,11 @@ public class ViewController implements Initializable {
                     }
                     else if (noteClass.equals(Blog.class)) {
                         System.out.println("This is a blog");
+                        try {
+                            showBlog((Blog) selectedNote);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                     else if (noteClass.equals(Todo.class)) {
                         System.out.println("This is a todo");

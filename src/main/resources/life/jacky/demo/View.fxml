@@ -25,28 +25,35 @@
                   </cursor>
                </Label>
                <TitledPane animated="false" expanded="false" text="Notes">
+                  <graphic>
+                     <Button mnemonicParsing="false" onAction="#addNote" text="+" />
+                  </graphic>
                   <content>
                      <ListView fx:id="noteList" prefHeight="200.0" prefWidth="200.0" />
                   </content>
+
                </TitledPane>
                <TitledPane animated="false" expanded="false" text="Blogs">
                   <content>
                      <ListView fx:id="blogList" prefHeight="200.0" prefWidth="200.0" />
                   </content>
+                  <graphic>
+                     <Button mnemonicParsing="false" onAction="#addBlog" text="+" />
+                  </graphic>
                </TitledPane>
                <TitledPane animated="false" expanded="false" text="Todos">
                   <content>
                      <ListView fx:id="todoList" prefHeight="200.0" prefWidth="200.0" />
                   </content>
+                  <graphic>
+                     <Button mnemonicParsing="false" onAction="#addTodo" text="+" />
+                  </graphic>
                </TitledPane>
                <TitledPane animated="false" expanded="false" text="Code Snippet">
                   <content>
                      <ListView fx:id="codeList" prefHeight="200.0" prefWidth="200.0" />
                   </content>
                </TitledPane>
-               <Button mnemonicParsing="false" onAction="#addNote" text="Add Note" />
-               <Button mnemonicParsing="false" onAction="#addBlog" text="Add Blog" />
-               <Button mnemonicParsing="false" onAction="#addTodo" text="Add Todo" />
             </children>
          </VBox>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

@@ -1,8 +1,9 @@
 package life.jacky.demo.Notes;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Note {
+public class Note implements Serializable {
     private String content;
     private Date createdDate;
 
@@ -21,7 +22,6 @@ public class Note {
     public void setContent(String content) {
         this.content = content;
     }
-
     @Override
     public String toString() {
         return content;

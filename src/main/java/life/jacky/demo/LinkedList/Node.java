@@ -1,6 +1,8 @@
 package life.jacky.demo.LinkedList;
 
-public class Node<E> {
+import java.io.Serializable;
+
+public class Node<E> implements Serializable {
     E element;
     Node<E> next;
     Node<E> previous;

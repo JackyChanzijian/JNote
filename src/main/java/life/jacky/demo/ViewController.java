@@ -15,7 +15,7 @@ import life.jacky.demo.Notes.CodeSnippet;
 import life.jacky.demo.Notes.Note;
 import life.jacky.demo.Notes.Todo;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -82,6 +82,15 @@ public class ViewController implements Initializable {
         showNote(newBlog);
     }
 
+    @FXML
+    public void saveData() throws IOException {
+        DataManager.saveAll();
+    }
+    @FXML
+    public void loadData() throws IOException, ClassNotFoundException, CloneNotSupportedException {
+        DataManager.loadAll();
+        refreshListView();
+    }
     @FXML
     void onKeyReleased(KeyEvent event) {
         refreshListView();    // Update the tree view when typing

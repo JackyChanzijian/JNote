@@ -1,6 +1,8 @@
 package life.jacky.demo.LinkedList;
 
-public class LinkedList<E> {
+import java.io.Serializable;
+
+public class LinkedList<E> implements Serializable, Cloneable {
     String name;
     Node<E> head, tail;
     public int length = 0;

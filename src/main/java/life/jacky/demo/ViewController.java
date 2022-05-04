@@ -30,15 +30,20 @@ public class ViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            loadInfo();
+            showInfoView();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+        try {
+            loadData();
+        } catch (IOException | ClassNotFoundException | CloneNotSupportedException e) {
+
         }
         setupListView();
     }
 
     @FXML
-    public void loadInfo() throws IOException {
+    public void showInfoView() throws IOException {
         String path = "ProjectInfo.fxml";
         FXMLLoader loader= new FXMLLoader(getClass().getResource(path));
         loadScene(loader.load());

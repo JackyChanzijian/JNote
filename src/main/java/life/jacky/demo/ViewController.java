@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import life.jacky.demo.Notes.Blog;
@@ -98,7 +99,29 @@ public class ViewController implements Initializable {
     }
     @FXML
     void onKeyReleased(KeyEvent event) {
-        refreshListView();    // Update the tree view when typing
+        if (event.getCode() == KeyCode.BACK_SPACE) {
+            if (selectedNote != null) {
+                deleteNote(selectedNote);
+            }
+        }
+        refreshListView();    // Update the list view when typing
+    }
+    void deleteNote(Note note) {
+        Class noteClass = note.getClass();
+        // Delete the note from its linked list
+        if (noteClass.equals(Note.class)) {
+            Global.notes.deleteNode(note);
+            System.out.println(Global.notes.length);
+        }
+        else if (noteClass.equals(Todo.class)) {
+            Global.todos.deleteNode((Todo) note);
+        }
+        else if (noteClass.equals(Blog.class)) {
+            Global.blogs.deleteNode((Blog) note);
+        }
+        else if (noteClass.equals(CodeSnippet.class)) {
+            Global.codes.deleteNode((CodeSnippet) note);
+        }
     }
 
     void loadScene(Parent fxml) throws IOException {

@@ -75,6 +75,7 @@ public class LinkedList<E> implements Serializable {
         if (length == 0) return;
         if (length == 1) {
             head = tail = null;
+            return;
         }
         for (int i = 0; i < length; i++) {
             if (getNode(i) == element) {

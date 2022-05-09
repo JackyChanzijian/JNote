@@ -25,6 +25,8 @@ public class ViewController implements Initializable {
     StackPane secondView;
     @FXML
     ListView noteList, blogList, todoList, codeList;
+    @FXML
+    CheckBox autoSaveCheckBox;
 
     Note selectedNote;
 
@@ -98,15 +100,22 @@ public class ViewController implements Initializable {
         refreshListView();
     }
     @FXML
-    void onKeyReleased(KeyEvent event) {
+    void onKeyReleased(KeyEvent event) throws IOException {
+        if (autoSaveCheckBox.isSelected()) {
+            saveData();
+        }
         if (event.getCode() == KeyCode.BACK_SPACE) {
             if (selectedNote != null) {
                 deleteNote(selectedNote);
             }
         }
+        if (event.getCode() == KeyCode.S) {
+            saveData();
+        }
         refreshListView();    // Update the list view when typing
     }
     void deleteNote(Note note) {
+        System.out.println(selectedNote.toString());
         Class noteClass = note.getClass();
         // Delete the note from its linked list
         if (noteClass.equals(Note.class)) {
@@ -153,7 +162,6 @@ public class ViewController implements Initializable {
             });
 
         }
-
     }
 
 }

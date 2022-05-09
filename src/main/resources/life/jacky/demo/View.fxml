@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
@@ -56,6 +57,7 @@
                </TitledPane>
                <Button mnemonicParsing="false" onAction="#saveData" text="Save" />
                <Button mnemonicParsing="false" onAction="#loadData" text="Load" />
+               <CheckBox fx:id="autoSaveCheckBox" mnemonicParsing="false" text="AutoSave" />
             </children>
          </VBox>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

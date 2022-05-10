@@ -19,6 +19,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         Scene scene = new Scene(root, Color.RED);
+        scene.getStylesheets().add(getClass().getResource("Global.css").toExternalForm());
 
         Image icon = new Image("icon.jpg");
         stage.getIcons().add(icon);

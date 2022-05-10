@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="life.jacky.demo.BlogController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Global.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="life.jacky.demo.BlogController">
    <children>
       <VBox alignment="TOP_RIGHT" layoutX="130.0" layoutY="26.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Add Blog">
+            <Label text="Blog">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>

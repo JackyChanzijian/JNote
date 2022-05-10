@@ -49,7 +49,7 @@ public class LinkedList<E> implements Serializable {
         }
         return current.element;
     }
-    public Node getNode(int index) {
+    public Node<E> getNode(int index) {
         if (index > length - 1) { return null; }
 
         Node<E> current = head;
@@ -58,8 +58,6 @@ public class LinkedList<E> implements Serializable {
         }
         return current;
     }
-
-
     public E[] toArray() {
         E[] elements = (E[]) new Object[length];
         for (int i = 0; i < length; i++) {
@@ -79,7 +77,17 @@ public class LinkedList<E> implements Serializable {
         }
         for (int i = 0; i < length; i++) {
             if (getNode(i) == element) {
-                getNode(i - 1).next = getNode(i + 1);
+                if (i == 0) {
+                    head = head.next;
+                }
+                else if (i == length - 1) {
+                    Node<E> lastSecond = getNode(length - 2);
+                    lastSecond.next = null;
+                    tail = lastSecond;
+                }
+                else {
+                    getNode(i - 1).next = getNode(i + 1);
+                }
             }
         }
         length--;

@@ -37,6 +37,7 @@ public class ViewController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        // Load data
         try {
             loadData();
         } catch (IOException | ClassNotFoundException | CloneNotSupportedException e) {
@@ -101,14 +102,17 @@ public class ViewController implements Initializable {
     }
     @FXML
     void onKeyReleased(KeyEvent event) throws IOException {
+        // Auto Save
         if (autoSaveCheckBox.isSelected()) {
             saveData();
         }
+        // Delete selected note
         if (event.getCode() == KeyCode.BACK_SPACE) {
             if (selectedNote != null) {
                 deleteNote(selectedNote);
             }
         }
+        // Manually Save
         if (event.getCode() == KeyCode.S) {
             saveData();
         }

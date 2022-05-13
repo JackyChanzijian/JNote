@@ -1,12 +1,20 @@
 package life.jacky.demo.Notes;
 
 public class CodeSnippet extends Note {
-    ProgrammingLanguage language;
+    private String language;
     CodeSnippet() {
         super();
     }
-    CodeSnippet(String content, ProgrammingLanguage language) {
+    CodeSnippet(String content, String language) {
         super(content);
+        this.setLanguage(language);
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
         this.language = language;
     }
 }

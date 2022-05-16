@@ -60,7 +60,7 @@ public class ViewController implements Initializable {
         if (noteClass.equals(Note.class)) path = "Note.fxml";
         else if (noteClass.equals(Blog.class)) path = "Blog.fxml";
         else if (noteClass.equals(Todo.class)) path = "Todo.fxml";
-        else if (noteClass.equals(CodeSnippet.class)) System.out.println("This is a Code Snippet");
+        else if (noteClass.equals(CodeSnippet.class)) path = "CodeSnippet.fxml";
         // Get Scene Loader
         FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
         Parent parent = loader.load();
@@ -79,16 +79,23 @@ public class ViewController implements Initializable {
     }
 
     @FXML
-    public void addBlog(ActionEvent e) throws  IOException {
+    public void addBlog(ActionEvent e) throws IOException {
         Blog newBlog = new Blog();
         Global.blogs.addLast(newBlog);
         showNote(newBlog);
     }
     @FXML
-    public void addTodo(ActionEvent e) throws  IOException {
+    public void addTodo(ActionEvent e) throws IOException {
         Todo newBlog = new Todo();
         Global.todos.addLast(newBlog);
         showNote(newBlog);
+    }
+
+    @FXML
+    public void addCodeSnippet(ActionEvent e) throws IOException {
+        CodeSnippet codeSnippet = new CodeSnippet();
+        Global.codeSnippets.addLast(codeSnippet);
+        showNote(codeSnippet);
     }
 
     @FXML
@@ -133,7 +140,7 @@ public class ViewController implements Initializable {
             Global.blogs.deleteNode((Blog) note);
         }
         else if (noteClass.equals(CodeSnippet.class)) {
-            Global.codes.deleteNode((CodeSnippet) note);
+            Global.codeSnippets.deleteNode((CodeSnippet) note);
         }
     }
 
@@ -145,7 +152,7 @@ public class ViewController implements Initializable {
         noteList.getItems().setAll(Global.notes.toArray());
         blogList.getItems().setAll(Global.blogs.toArray());
         todoList.getItems().setAll(Global.todos.toArray());
-        codeList.getItems().setAll(Global.codes.toArray());
+        codeList.getItems().setAll(Global.codeSnippets.toArray());
     }
     void setupListView() {
         ListView[] lists = {noteList, blogList, todoList, codeList};

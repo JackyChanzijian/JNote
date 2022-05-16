@@ -53,7 +53,6 @@ public class TodoController extends NoteControllerBase {
         checkBox.setSelected(todo.isComplete());
         todoField.setText(todo.getContent());
         detailField.setText(todo.getDetail());
-        System.out.println(todo.getDueDate());
         if (todo.getDueDate() != null)
             datePicker.setValue(dateToLocalDate(todo.getDueDate()));
     }

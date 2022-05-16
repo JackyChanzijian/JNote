@@ -54,6 +54,9 @@
                   <content>
                      <ListView fx:id="codeList" prefHeight="200.0" prefWidth="200.0" />
                   </content>
+                  <graphic>
+                     <Button mnemonicParsing="false" onAction="#addCodeSnippet" text="+" />
+                  </graphic>
                </TitledPane>
                <Button mnemonicParsing="false" onAction="#saveData" text="Save" />
                <Button mnemonicParsing="false" onAction="#loadData" text="Load" />

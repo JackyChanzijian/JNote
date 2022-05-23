@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Global.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="life.jacky.demo.BlogController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="life.jacky.demo.BlogController">
    <children>
-      <VBox alignment="TOP_RIGHT" layoutX="130.0" layoutY="26.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="130.0" layoutY="26.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="Blog">
-               <font>
-                  <Font name="System Bold" size="26.0" />
-               </font>
-            </Label>
+            <Label styleClass="title-text" text="Blog" />
             <TextField fx:id="titleText" onKeyReleased="#onKeyReleased" promptText="Title" />
             <TextField fx:id="authorText" onKeyReleased="#onKeyReleased" promptText="Author" />
             <TextArea fx:id="contentText" onKeyReleased="#onKeyReleased" prefHeight="200.0" prefWidth="600.0" />
          </children>
       </VBox>
    </children>
+   <stylesheets>
+      <URL value="@Global.css" />
+      <URL value="@Notes.css" />
+   </stylesheets>
 </AnchorPane>

@@ -8,6 +8,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -17,7 +18,7 @@
         <items>
          <VBox prefHeight="200.0" prefWidth="100.0">
             <children>
-               <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#showInfoView" prefHeight="68.0" prefWidth="175.0" style="-fx-background-color: #cfd8dc;" styleClass="title" text="Menu">
+               <Label fx:id="menuTitle" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" onMouseClicked="#showInfoView" prefHeight="68.0" prefWidth="175.0" styleClass="menuTitle" text="Menu">
                   <font>
                      <Font name="System Bold" size="29.0" />
                   </font>
@@ -25,7 +26,7 @@
                      <Cursor fx:constant="HAND" />
                   </cursor>
                </Label>
-               <TitledPane animated="false" expanded="true" text="Quick Note">
+               <TitledPane animated="false" expanded="true" style="-fx-border-radius: 0;" text="Quick Note">
                   <graphic>
                      <Button mnemonicParsing="false" onAction="#addNote" text="+" />
                   </graphic>
@@ -58,9 +59,13 @@
                      <Button mnemonicParsing="false" onAction="#addCodeSnippet" text="+" />
                   </graphic>
                </TitledPane>
-               <Button mnemonicParsing="false" onAction="#saveData" text="Save" />
-               <Button mnemonicParsing="false" onAction="#loadData" text="Load" />
-               <CheckBox fx:id="autoSaveCheckBox" mnemonicParsing="false" selected="true" text="AutoSave" />
+               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#saveData" text="Save" />
+                     <Button mnemonicParsing="false" onAction="#loadData" text="Load" />
+                     <CheckBox fx:id="autoSaveCheckBox" mnemonicParsing="false" prefHeight="27.0" selected="true" text="AutoSave" HBox.hgrow="ALWAYS" />
+                  </children>
+               </HBox>
             </children>
          </VBox>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

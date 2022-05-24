@@ -1,10 +1,7 @@
 package life.jacky.demo;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import life.jacky.demo.Notes.Note;
@@ -16,6 +13,8 @@ import java.time.ZoneId;
 import java.util.Date;
 
 public class TodoController extends NoteControllerBase {
+    @FXML
+    Label createdDate;
     @FXML
     CheckBox checkBox;
     @FXML
@@ -50,6 +49,7 @@ public class TodoController extends NoteControllerBase {
     @Override
     public void setNote(Note note) {
         this.todo = (Todo) note;
+        createdDate.setText(note.getCreatedDate().toString());
         checkBox.setSelected(todo.isComplete());
         todoField.setText(todo.getContent());
         detailField.setText(todo.getDetail());

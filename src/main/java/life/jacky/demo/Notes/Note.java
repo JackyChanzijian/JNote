@@ -22,6 +22,9 @@ public class Note implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
+    public Date getCreatedDate() {
+        return createdDate;
+    }
     @Override
     public String toString() {
         return content;

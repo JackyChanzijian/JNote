@@ -12,6 +12,7 @@
       <VBox layoutX="130.0" layoutY="26.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label styleClass="title-text" text="Blog" />
+            <Label styleClass="created-date" fx:id="createdDate" />
             <TextField fx:id="titleText" onKeyReleased="#onKeyReleased" promptText="Title" />
             <TextField fx:id="authorText" onKeyReleased="#onKeyReleased" promptText="Author" />
             <TextArea fx:id="contentText" onKeyReleased="#onKeyReleased" prefHeight="200.0" prefWidth="600.0" />

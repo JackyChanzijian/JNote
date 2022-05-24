@@ -12,6 +12,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label styleClass="title-text" text="Code Snippet" />
+            <Label styleClass="created-date" fx:id="createdDate" />
             <TextArea fx:id="textArea" onKeyReleased="#onContentTyped" prefHeight="200.0" prefWidth="200.0" />
             <ChoiceBox fx:id="choiceBox" onHiding="#onChoiceBoxSelected" prefWidth="150.0" />
          </children>

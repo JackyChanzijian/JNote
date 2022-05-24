@@ -3,6 +3,7 @@ package life.jacky.demo;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import life.jacky.demo.Notes.CodeSnippet;
 import life.jacky.demo.Notes.Note;
@@ -10,6 +11,8 @@ import life.jacky.demo.Notes.Todo;
 
 public class CodeSnippetController extends NoteControllerBase {
     CodeSnippet snippet;
+    @FXML
+    Label createdDate;
     @FXML
     TextArea textArea;
     @FXML
@@ -27,6 +30,7 @@ public class CodeSnippetController extends NoteControllerBase {
     public void setNote(Note note) {
         setupChoiceBox();
         this.snippet = (CodeSnippet) note;
+        createdDate.setText(note.getCreatedDate().toString());
         textArea.setText(snippet.getContent());
         choiceBox.getSelectionModel().select(snippet.getLanguage());
     }

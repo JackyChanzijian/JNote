@@ -1,6 +1,7 @@
 package life.jacky.demo;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -9,7 +10,8 @@ import life.jacky.demo.Notes.Note;
 
 public class BlogController extends NoteControllerBase {
     Blog blog;
-
+    @FXML
+    Label createdDate;
     @FXML
     private TextField authorText;
     @FXML
@@ -34,6 +36,7 @@ public class BlogController extends NoteControllerBase {
     @Override
     public void setNote(Note note) {
         this.blog = (Blog) note;
+        createdDate.setText(note.getCreatedDate().toString());
         titleText.setText(blog.getTitle());
         authorText.setText(blog.getAuthor());
         contentText.setText(blog.getContent());

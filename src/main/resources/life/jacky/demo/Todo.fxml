@@ -16,6 +16,7 @@
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label styleClass="title-text" text="Todo" />
+            <Label styleClass="created-date" fx:id="createdDate" />
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField fx:id="todoField" onKeyReleased="#onContentTyped" prefHeight="32.0" prefWidth="500.0" />

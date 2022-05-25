@@ -2,7 +2,7 @@ VBox {
     -fx-alignment: top-right;
     -fx-padding: 10;
 }
-.created-date {
-    -fx-fill: white;
-    -fx-text-fill: white;
+.title-text {
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
 }

@@ -13,13 +13,18 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View.fxml"));
+        Parent root = (Parent)loader.load();
         Scene scene = new Scene(root, Color.RED);
         scene.getStylesheets().add(getClass().getResource("Global.css").toExternalForm());
+
+        ViewController controller = loader.getController();
+        controller.thisScene = scene;
 
         Image icon = new Image("icon.jpg");
         stage.getIcons().add(icon);

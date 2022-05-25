@@ -64,6 +64,7 @@
                      <Button mnemonicParsing="false" onAction="#saveData" text="Save" />
                      <Button mnemonicParsing="false" onAction="#loadData" text="Load" />
                      <CheckBox fx:id="autoSaveCheckBox" mnemonicParsing="false" prefHeight="27.0" selected="true" text="AutoSave" HBox.hgrow="ALWAYS" />
+                     <Button mnemonicParsing="false" onAction="#toggleNightMode" text="Button" />
                   </children>
                </HBox>
             </children>

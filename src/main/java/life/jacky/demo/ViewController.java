@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -29,6 +30,8 @@ public class ViewController implements Initializable {
     CheckBox autoSaveCheckBox;
 
     Note selectedNote;
+    Scene thisScene;
+    boolean isNightMode;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -124,6 +127,16 @@ public class ViewController implements Initializable {
             saveData();
         }
         refreshListView();    // Update the list view when typing
+    }
+    @FXML
+    void toggleNightMode() {
+        if (isNightMode) {
+            thisScene.getStylesheets().removeAll(getClass().getResource("GlobalDark.css").toExternalForm());
+        }
+        else {
+            thisScene.getStylesheets().add(getClass().getResource("GlobalDark.css").toExternalForm());
+        }
+        isNightMode = !isNightMode;  // Toggle night mode
     }
     void deleteNote(Note note) {
         System.out.println(selectedNote.toString());

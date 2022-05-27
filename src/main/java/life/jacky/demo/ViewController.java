@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -28,10 +30,16 @@ public class ViewController implements Initializable {
     ListView noteList, blogList, todoList, codeList;
     @FXML
     CheckBox autoSaveCheckBox;
+    @FXML
+    Button nightModeButton;
+    @FXML
+    ImageView nightModeIcon;
 
     Note selectedNote;
     Scene thisScene;
     boolean isNightMode;
+
+    Image sun, moon;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -47,6 +55,10 @@ public class ViewController implements Initializable {
 
         }
         setupListView();
+
+        // Set up images
+        sun = new Image(getClass().getResourceAsStream("sun.png"));
+        moon = new Image(getClass().getResourceAsStream("moon.png"));
     }
 
     @FXML
@@ -132,9 +144,11 @@ public class ViewController implements Initializable {
     void toggleNightMode() {
         if (isNightMode) {
             thisScene.getStylesheets().removeAll(getClass().getResource("GlobalDark.css").toExternalForm());
+            nightModeIcon.setImage(moon);
         }
         else {
             thisScene.getStylesheets().add(getClass().getResource("GlobalDark.css").toExternalForm());
+            nightModeIcon.setImage(sun);
         }
         isNightMode = !isNightMode;  // Toggle night mode
     }

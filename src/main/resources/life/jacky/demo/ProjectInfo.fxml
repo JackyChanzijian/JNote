@@ -6,7 +6,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Global.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="life.jacky.demo.ProjectInfoController">
    <children>
-      <TextArea editable="false" layoutX="132.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" text="This project is for personal use and CS40S Final project&#10;&#10;Also, it's my first project using JavaFX, so it's the code is spaghetti&#10;&#10;" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+      <TextArea wrapText="true" editable="false" layoutX="132.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0"
+                text="This project is for personal use and CS40S Final project&#10;&#10;Your note data will be saved&#10;&#10;Also, it's my first project using JavaFX, so it's the code is spaghetti&#10;&#10;" >
          <font>
             <Font size="16.0" />
          </font>

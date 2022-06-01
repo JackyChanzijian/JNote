@@ -1,6 +1,11 @@
+AnchorPane {
+    -fx-padding: 20;
+}
 VBox {
     -fx-alignment: top-right;
-    -fx-padding: 10;
+}
+HBox {
+    -fx-alignment: top-right;
 }
 .title-text {
     -fx-font-size: 40;

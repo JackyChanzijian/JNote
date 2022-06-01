@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -16,19 +17,20 @@
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label styleClass="title-text" text="Todo" />
-            <Label styleClass="created-date" fx:id="createdDate" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="todoField" onKeyReleased="#onContentTyped" prefHeight="32.0" prefWidth="500.0" />
+            <Label fx:id="createdDate" styleClass="created-date" />
+            <VBox>
+               <HBox>
+                  <TextField fx:id="todoField" onKeyReleased="#onContentTyped" />
                   <CheckBox fx:id="checkBox" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onChecked">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </CheckBox>
-                  <DatePicker fx:id="datePicker" onHiding="#onDateSelected" />
-               </children>
-            </HBox>
-            <TextArea fx:id="detailField" onKeyReleased="#onDetailTyped" prefHeight="200.0" prefWidth="200.0" />
+               </HBox>
+               <DatePicker fx:id="datePicker" onHiding="#onDateSelected" />
+            </VBox>
+
+            <TextArea fx:id="detailField" onKeyReleased="#onDetailTyped" prefWidth="560.0" />
          </children>
       </VBox>
    </children>

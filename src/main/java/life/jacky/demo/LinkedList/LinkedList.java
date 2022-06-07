@@ -60,6 +60,7 @@ public class LinkedList<E> implements Serializable {
     }
     public E[] toArray() {
         E[] elements = (E[]) new Object[length];
+        if (length == 0) return elements;
         for (int i = 0; i < length; i++) {
             elements[i] = get(i);
         }
@@ -72,7 +73,7 @@ public class LinkedList<E> implements Serializable {
     public void deleteNode(E element) {
         if (length == 0) return;
         if (length == 1) {
-            head = tail = null;
+            clear();
             return;
         }
         for (int i = 0; i < length; i++) {

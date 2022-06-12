@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="JNote:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/JNote_jar</output-path>
+  <artifact type="jar" name="JNote_Mac:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JNote_Mac_jar</output-path>
     <root id="archive" name="JNote.jar">
       <element id="module-output" name="JNote" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/javafx-sdk-17.0.2/lib/javafx-swt.jar" path-in-jar="/" />

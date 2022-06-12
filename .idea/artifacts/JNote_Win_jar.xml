@@ -1,8 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="demo:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/demo_jar</output-path>
+  <artifact type="jar" name="JNote_Win:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JNote_Win_jar</output-path>
     <root id="archive" name="demo.jar">
-      <element id="module-output" name="demo" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17.0.1/javafx-fxml-17.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17.0.1/javafx-base-17.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.1/javafx-controls-17.0.1-win.jar" path-in-jar="/" />
@@ -68,6 +67,7 @@
       <element id="file-copy" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-17.0.2/bin/ucrtbase.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-17.0.2/bin/vcruntime140.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../../Program Files/Java/javafx-sdk-17.0.2/bin/vcruntime140_1.dll" />
+      <element id="module-output" name="JNote" />
     </root>
   </artifact>
 </component>
